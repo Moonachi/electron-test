@@ -2,18 +2,52 @@
   "name": "electron",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.6",
+    "electron-updater": "^4.6.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
+  "build": {
+    "appId":"com.test.electronApp",
+    "productName":"test updator",
+    "publish": [
+      {
+        "provider":"github",
+        "owner":"moonachi",
+        "repo":"electron-test"
+      }
+    ],
+    "win":{
+      "publish":[
+        "github"
+      ],
+      "target":[
+        {
+          "target":"nsis",
+          "arch":[
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "concurrently \"cross-env BROWSER=none yarn start:react\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "yarn build:react && electron-builder",
+    "release": "yarn build:react && electron-builder --win --publish=always",
+    "start:react": "react-scripts start",
+    "start:electron": "electron .",
+    "build:react": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +68,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^17.1.2",
+    "electron-builder": "^22.14.13",
+    "wait-on": "^6.0.1"
   }
 }
