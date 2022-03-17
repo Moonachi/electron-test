@@ -4198,6 +4198,13 @@ electron-osx-sign@^0.5.0:
     minimist "^1.2.0"
     plist "^3.0.1"
 
+electron-progressbar@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/electron-progressbar/-/electron-progressbar-2.0.1.tgz#97e39e006cc9f4a63c598b03b171800fd47f8f33"
+  integrity sha512-+N60GX2q+KH5OvZXxwtjMTZB/1AyxriFd95vOnR3sOfNpvz+30LMsM0a9SnEivZE6N8Djy7F3z4TY8pLs8aopw==
+  dependencies:
+    extend "^3.0.1"
+
 electron-publish@22.14.13:
   version "22.14.13"
   resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-22.14.13.tgz#8b71e6975af8cc6ac5b21f293ade23f8704047c7"
@@ -4723,6 +4730,11 @@ express@^4.17.1:
     type-is "~1.6.18"
     utils-merge "1.0.1"
     vary "~1.1.2"
+
+extend@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
+  integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
 extract-zip@^1.0.3:
   version "1.7.0"
